@@ -1,0 +1,25 @@
+<div class="wrapper fadeInDown">
+   <div id="formContent">
+      <div class="fadeInFirst">
+         <h1>New User</h1>
+      </div>
+
+      <!-- Register Form -->
+      <form>
+         <input type="text" [(ngModel)] = "credentials.fname" id="fname" class="fadeIn second" name="fname" placeholder="first name">
+         <input type="text" [(ngModel)] = "credentials.lname" id="lname" class="fadeIn third" name="lname" placeholder="last name">
+         <input type="text" [(ngModel)] = "credentials.email" id="email" class="fadeIn fourth" name="email" placeholder="email">
+         <input type="password" [(ngModel)] = "credentials.password" id="password" class="fadeIn fifth" name="password" placeholder="password">
+         <input type="password" id="passagain" class="fadeIn sixth" name="passagain" placeholder="enter password again">
+         <!-- <input type="text" [(ngModel)] = "credentials.program" id="program" class="fadeIn seventh" name="program" placeholder="program"> -->
+         <select (change)="onChange($event)" name="program" class="form-control col-lg-8">
+            <option *ngFor="let items of allProgs;" [value]="items._id">{{items.programName}}</option>    
+         </select>
+        
+         <br>
+         <br>
+         <input type="submit" class="fadeIn seventh" value="Register" (click)="registerUser();">
+         <input type="button" class="fadeIn seventh" value="login" routerLink="/login">
+      </form>
+   </div>
+</div>

@@ -1,0 +1,61 @@
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Academia</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../../assets/css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body style="font-size:16px;">
+
+  <div style="border-bottom:solid lightgrey 1px;background-color: cornflowerblue;padding: 10px;color:white;">
+    <h1>ACADEMIA</h1>
+  </div>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2" id="sidebar-wrapper">
+      <div>
+        <p style="padding:12px;text-align: center;"> Hello, {{details?.fname}} {{details?.lname}}</p>
+        <img src="../../../assets/images/user.svg" alt="user"/>
+      </div>
+      <div class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action bg-light" [routerLink]="['dashboard']" (click)="toggleDashboard()"><i class="material-icons">bar_chart</i> Dashboard</a>
+        <a class="list-group-item list-group-item-action bg-light" [routerLink]="['user']" (click)="toggleUser()"><i class="material-icons">face</i> Users</a>
+        <a class="list-group-item list-group-item-action bg-light" [routerLink]="['books']" (click)="toggleBooks()"><i class="material-icons">book</i> Books</a>
+        <a class="list-group-item list-group-item-action bg-light" [routerLink]="['programs']" (click)="togglePrograms()"><i class="material-icons">school</i> Programs</a>
+        <!-- <a class="list-group-item list-group-item-action bg-light" *ngIf="auth.isLoggedIn()" (click)="auth.logout()"><i class="material-icons">power_settings_new</i> Logout</a> -->
+        <button *ngIf="auth.isLoggedIn()" (click)="auth.logout()" style="background-color: cornflowerblue;padding:5px;color:white;">LOGOUT</button>
+        <!-- <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> -->
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <!-- <div id="page-content-wrapper" *ngIf="showDashboard">
+      Dashboard!
+    </div> -->
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <router-outlet *ngIf="showDashboard||showUser||showBooks||showPrograms"></router-outlet>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+

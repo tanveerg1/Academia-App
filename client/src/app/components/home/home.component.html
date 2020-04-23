@@ -1,0 +1,37 @@
+<div>
+
+  <div style="border-bottom:solid lightgrey 1px;background-color: cornflowerblue;padding: 10px;color:white;">
+    <h1>ACADEMIA</h1>
+  </div>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2" id="sidebar-wrapper">
+      <div>
+        <p style="padding:12px;text-align: center;"> Hello, {{details?.fname}} {{details?.lname}}</p>
+        <img src="../../../assets/images/user.svg" alt="user"/>
+      </div>
+      <div class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action bg-light" [routerLink]="['userboard']" (click)="toggleUserboard()"><i class="material-icons">book</i> Dashboard</a>        
+        <a class="list-group-item list-group-item-action bg-light" *ngIf="details" [routerLink]="['account', details?._id]" (click)="toggleAccount()"><i class="material-icons">settings</i> Account</a>
+        <a class="list-group-item list-group-item-action bg-light" [routerLink]="['show-questions']" (click)="togglePayment()"><i class="material-icons">question_answer</i> Q&A</a>
+        <a class="list-group-item list-group-item-action bg-light" [routerLink]="['upload']" (click)="toggleUpload()"><i class="material-icons">cloud_upload</i> Upload</a>
+        <!-- <a class="list-group-item list-group-item-action bg-light" *ngIf="auth.isLoggedIn()" (click)="auth.logout()"><i class="material-icons">power_settings_new</i> Logout</a> -->
+        <button *ngIf="auth.isLoggedIn()" (click)="auth.logout()" style="background-color: cornflowerblue;padding:5px;color:white;">LOGOUT</button>
+        <!-- <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> -->
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <!-- <div id="page-content-wrapper" *ngIf="showDashboard">
+      Dashboard!
+    </div> -->
+    <div class="col-12" style="max-width: 84%">
+      <router-outlet *ngIf="showDashboard||showAccount||showPayment||showUpload"></router-outlet>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+</div>
