@@ -5,4 +5,4 @@ The schools can use this as an all in one solution to have most of the books onl
 # Running
 
 To run this npm install in api and client folder seperately and then npm run start seperately for both.
-Remember you need to have your own database setup in MongoDB cloud.
+Remember you need to have your own database setup in MongoDB cloud. Change the dbURI in the api/models/db.js to your own address
